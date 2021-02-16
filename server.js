@@ -29,8 +29,7 @@ app.get('/movies', function handleGetMovies(req,res){
   let response = MOVIES;
   const genre =req.query.genre;
   const country =req.query.country;
-  const avg_vote = req.query.avg_vote;
-
+  const avg_vote=req.query.avg_vote;
   if(genre){
     response=response.filter(moive => moive.genre.toLowerCase().includes(genre.toLowerCase()))
   }
@@ -38,7 +37,7 @@ app.get('/movies', function handleGetMovies(req,res){
     response=response.filter(moive => moive.country.toLowerCase().includes(country.toLowerCase()))
   }
   if(avg_vote){
-    response=response.filter(movie => NUMBER(movie.avg_vote) >= NUMBER(avg_vote))
+    response=response.filter(movie => Number(movie.avg_vote) >= Number(avg_vote))
   }
 
   res.json(response);
