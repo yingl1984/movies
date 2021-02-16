@@ -23,7 +23,8 @@ app.use(function validateBearerToken(req, res, next) {
   
   next()
 })
-    
+
+//API
 app.get('/movies', function handleGetMovies(req,res){
   let response = MOVIES;
   const genre =req.query.genre;
